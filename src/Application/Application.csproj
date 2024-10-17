@@ -1,0 +1,66 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <RootNamespace>UserService.Application</RootNamespace>
+    <AssemblyName>UserService.Application</AssemblyName>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Ardalis.GuardClauses"/>
+    <PackageReference Include="AutoMapper"/>
+    <PackageReference Include="FluentValidation.DependencyInjectionExtensions"/>
+    <PackageReference Include="Microsoft.EntityFrameworkCore"/>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Domain\Domain.csproj"/>
+  </ItemGroup>
+
+  <ItemGroup>
+    <IntermediateAssembly Remove="obj\Debug\net8.0\UserService&#xD;&#xA;.Application.dll"/>
+    <IntermediateAssembly Remove="obj\Debug\net8.0\UserService&#xD;&#xA;.Application.dll"/>
+    <IntermediateAssembly Remove="obj\Debug\net8.0\UserService&#xD;&#xA;.Application&#xD;&#xA;.dll" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <IntermediateRefAssembly Remove="obj\Debug\net8.0\refint\UserService&#xD;&#xA;.Application.dll"/>
+    <IntermediateRefAssembly Remove="obj\Debug\net8.0\refint\UserService&#xD;&#xA;.Application.dll"/>
+    <IntermediateRefAssembly Remove="obj\Debug\net8.0\refint\UserService&#xD;&#xA;.Application&#xD;&#xA;.dll" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <_DebugSymbolsIntermediatePath Remove="obj\Debug\net8.0\UserService&#xD;&#xA;.Application.pdb"/>
+    <_DebugSymbolsIntermediatePath Remove="obj\Debug\net8.0\UserService&#xD;&#xA;.Application.pdb"/>
+    <_DebugSymbolsIntermediatePath Remove="obj\Debug\net8.0\UserService&#xD;&#xA;      .Application&#xD;&#xA;    .pdb" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <_DeploymentManifestEntryPoint Remove="obj\Debug\net8.0\UserService&#xD;&#xA;.Application.dll"/>
+    <_DeploymentManifestEntryPoint Remove="obj\Debug\net8.0\UserService&#xD;&#xA;.Application.dll"/>
+    <_DeploymentManifestEntryPoint Remove="obj\Debug\net8.0\UserService&#xD;&#xA;      .Application&#xD;&#xA;    .dll" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ApplicationManifest Remove="obj\Debug\net8.0\Native.UserService&#xD;&#xA;.Application.manifest"/>
+    <ApplicationManifest Remove="obj\Debug\net8.0\Native.UserService&#xD;&#xA;.Application.manifest"/>
+    <ApplicationManifest Remove="obj\Debug\net8.0\Native.UserService&#xD;&#xA;      .Application&#xD;&#xA;    .manifest" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <DeployManifest Remove="obj\Debug\net8.0\UserService&#xD;&#xA;.Application.application"/>
+    <DeployManifest Remove="obj\Debug\net8.0\UserService&#xD;&#xA;.Application.application"/>
+    <DeployManifest Remove="obj\Debug\net8.0\UserService&#xD;&#xA;      .Application&#xD;&#xA;    .application" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ClsidMap Remove="obj\Debug\net8.0\UserService&#xD;&#xA;.Application.clsidmap"/>
+    <ClsidMap Remove="obj\Debug\net8.0\UserService&#xD;&#xA;.Application.clsidmap"/>
+    <ClsidMap Remove="obj\Debug\net8.0\UserService&#xD;&#xA;      .Application&#xD;&#xA;    .clsidmap" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <RegFreeComManifest Remove="obj\Debug\net8.0\UserService&#xD;&#xA;.Application.X.manifest"/>
+    <RegFreeComManifest Remove="obj\Debug\net8.0\UserService&#xD;&#xA;.Application.X.manifest"/>
+    <RegFreeComManifest Remove="obj\Debug\net8.0\UserService&#xD;&#xA;      .Application&#xD;&#xA;    .X.manifest" />
+  </ItemGroup>
+
+</Project>
