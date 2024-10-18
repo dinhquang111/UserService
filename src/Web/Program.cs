@@ -1,14 +1,15 @@
 using UserService.Infrastructure;
 using UserService.Infrastructure.Data;
+using UserService.Web;
 
 WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
 
-// builder.Configuration
-//     .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
-//     .AddEnvironmentVariables()
-//     .AddCommandLine(args);
+builder.Configuration
+    .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
+    .AddEnvironmentVariables()
+    .AddCommandLine(args);
 
-// builder.Configuration.AddConsul();
+builder.Configuration.AddConsul();
 
 // Add services to the container.
 builder.Services.AddKeyVaultIfConfigured(builder.Configuration);

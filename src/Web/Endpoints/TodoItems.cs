@@ -7,12 +7,12 @@ using UserService.Application.TodoItems.Queries.GetTodoItemsWithPagination;
 
 namespace UserService.Web.Endpoints;
 
-public class TodoItems : EndpointGroupBase
+public class TodoItems : IEndpointGroupBase
 {
-    public override void Map(WebApplication app)
+    public void Map(WebApplication app)
     {
         app.MapGroup(this)
-            .RequireAuthorization()
+            // .RequireAuthorization()
             .MapGet(GetTodoItemsWithPagination)
             .MapPost(CreateTodoItem)
             .MapPut(UpdateTodoItem, "{id}")

@@ -1,7 +1,19 @@
-﻿namespace UserService.Domain.ValueObjects;
+﻿namespace CleanArchitecture.Domain.ValueObjects;
 
 public class Colour(string code) : ValueObject
 {
+    public static Colour From(string code)
+    {
+        var colour = new Colour(code);
+
+        if (!SupportedColours.Contains(colour))
+        {
+            throw new UnsupportedColourException(code);
+        }
+
+        return colour;
+    }
+
     public static Colour White => new("#FFFFFF");
 
     public static Colour Red => new("#FF5733");
@@ -18,34 +30,7 @@ public class Colour(string code) : ValueObject
 
     public static Colour Grey => new("#999999");
 
-    public string Code { get; } = string.IsNullOrWhiteSpace(code) ? "#000000" : code;
-
-    protected static IEnumerable<Colour> SupportedColours
-    {
-        get
-        {
-            yield return White;
-            yield return Red;
-            yield return Orange;
-            yield return Yellow;
-            yield return Green;
-            yield return Blue;
-            yield return Purple;
-            yield return Grey;
-        }
-    }
-
-    public static Colour From(string code)
-    {
-        Colour colour = new Colour(code);
-
-        if (!SupportedColours.Contains(colour))
-        {
-            throw new UnsupportedColourException(code);
-        }
-
-        return colour;
-    }
+    public string Code { get; private set; } = string.IsNullOrWhiteSpace(code)?"#000000":code;
 
     public static implicit operator string(Colour colour)
     {
@@ -60,6 +45,21 @@ public class Colour(string code) : ValueObject
     public override string ToString()
     {
         return Code;
+    }
+
+    protected static IEnumerable<Colour> SupportedColours
+    {
+        get
+        {
+            yield return White;
+            yield return Red;
+            yield return Orange;
+            yield return Yellow;
+            yield return Green;
+            yield return Blue;
+            yield return Purple;
+            yield return Grey;
+        }
     }
 
     protected override IEnumerable<object> GetEqualityComponents()

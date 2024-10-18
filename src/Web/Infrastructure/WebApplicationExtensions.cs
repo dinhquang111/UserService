@@ -4,7 +4,7 @@ namespace UserService.Web.Infrastructure;
 
 public static class WebApplicationExtensions
 {
-    public static RouteGroupBuilder MapGroup(this WebApplication app, EndpointGroupBase group)
+    public static RouteGroupBuilder MapGroup(this WebApplication app, IEndpointGroupBase group)
     {
         string groupName = group.GetType().Name;
 
@@ -17,16 +17,16 @@ public static class WebApplicationExtensions
 
     public static WebApplication MapEndpoints(this WebApplication app)
     {
-        Type endpointGroupType = typeof(EndpointGroupBase);
+        Type endpointGroupType = typeof(IEndpointGroupBase);
 
         Assembly assembly = Assembly.GetExecutingAssembly();
 
         IEnumerable<Type> endpointGroupTypes = assembly.GetExportedTypes()
-            .Where(t => t.IsSubclassOf(endpointGroupType));
+            .Where(t => endpointGroupType.IsAssignableFrom(t) && t is { IsInterface: false, IsAbstract: false });
 
         foreach (Type type in endpointGroupTypes)
         {
-            if (Activator.CreateInstance(type) is EndpointGroupBase instance)
+            if (Activator.CreateInstance(type) is IEndpointGroupBase instance)
             {
                 instance.Map(app);
             }

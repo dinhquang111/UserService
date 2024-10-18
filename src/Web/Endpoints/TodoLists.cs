@@ -5,12 +5,12 @@ using UserService.Application.TodoLists.Queries.GetTodos;
 
 namespace UserService.Web.Endpoints;
 
-public class TodoLists : EndpointGroupBase
+public class TodoLists : IEndpointGroupBase
 {
-    public override void Map(WebApplication app)
+    public void Map(WebApplication app)
     {
         app.MapGroup(this)
-            .RequireAuthorization()
+            // .RequireAuthorization()
             .MapGet(GetTodoLists)
             .MapPost(CreateTodoList)
             .MapPut(UpdateTodoList, "{id}")

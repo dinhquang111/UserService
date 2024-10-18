@@ -1,6 +1,6 @@
 ﻿namespace UserService.Web.Infrastructure;
 
-public abstract class EndpointGroupBase
+public interface IEndpointGroupBase
 {
-    public abstract void Map(WebApplication app);
+    public void Map(WebApplication app);
 }

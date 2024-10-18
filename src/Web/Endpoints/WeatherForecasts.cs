@@ -2,9 +2,9 @@
 
 namespace UserService.Web.Endpoints;
 
-public class WeatherForecasts : EndpointGroupBase
+public class WeatherForecasts : IEndpointGroupBase
 {
-    public override void Map(WebApplication app)
+    public void Map(WebApplication app)
     {
         app.MapGroup(this)
             .RequireAuthorization()

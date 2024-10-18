@@ -2,9 +2,9 @@
 
 namespace UserService.Web.Endpoints;
 
-public class Users : EndpointGroupBase
+public class Users : IEndpointGroupBase
 {
-    public override void Map(WebApplication app)
+    public void Map(WebApplication app)
     {
         app.MapGroup(this)
             .MapIdentityApi<ApplicationUser>();
