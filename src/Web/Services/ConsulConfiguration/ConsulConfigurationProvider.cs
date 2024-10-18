@@ -2,7 +2,7 @@ using System.Text;
 using Consul;
 using Newtonsoft.Json.Linq;
 
-namespace UserService.Web;
+namespace UserService.Web.Services.ConsulConfiguration;
 
 public class ConsulConfigurationProvider : ConfigurationProvider
 {

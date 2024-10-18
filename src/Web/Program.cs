@@ -1,6 +1,7 @@
 using UserService.Infrastructure;
 using UserService.Infrastructure.Data;
 using UserService.Web;
+using UserService.Web.Services.ConsulConfiguration;
 
 WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
 

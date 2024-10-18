@@ -25,13 +25,11 @@ public class CustomExceptionHandler : IExceptionHandler
     {
         Type exceptionType = exception.GetType();
 
-        if (_exceptionHandlers.ContainsKey(exceptionType))
-        {
-            await _exceptionHandlers[exceptionType].Invoke(httpContext, exception);
-            return true;
-        }
+        if (!_exceptionHandlers.TryGetValue(exceptionType, out var handler))
+            return false;
 
-        return false;
+        await handler.Invoke(httpContext, exception);
+        return true;
     }
 
     private async Task HandleValidationException(HttpContext httpContext, Exception ex)
@@ -69,7 +67,7 @@ public class CustomExceptionHandler : IExceptionHandler
         {
             Status = StatusCodes.Status401Unauthorized,
             Title = "Unauthorized",
-            Type = "https://tools.ietf.org/html/rfc7235#section-3.1"
+            Type = "https://tools.ietf.org/html/rfc7235#section-3.1",
         });
     }
 

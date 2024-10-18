@@ -1,4 +1,4 @@
-namespace UserService.Web;
+namespace UserService.Web.Services.ConsulConfiguration;
 
 public class ConsulConfigurationSource(string keyPrefix, Uri consulAddress) : IConfigurationSource
 {

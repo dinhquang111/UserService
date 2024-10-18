@@ -1,4 +1,4 @@
-namespace UserService.Web;
+namespace UserService.Web.Services.ConsulConfiguration;
 
 public static class ConfigurationManagerExtensions
 {
@@ -6,7 +6,6 @@ public static class ConfigurationManagerExtensions
         this ConfigurationManager manager)
     {
         IConfigurationBuilder configBuilder = manager;
-
         IConfigurationSection consulAddress = manager.GetSection("ConsulAddress");
         IConfigurationSection consulKey = manager.GetSection("ConsulKey");
         if (string.IsNullOrWhiteSpace(consulAddress.Value) || string.IsNullOrWhiteSpace(consulKey.Value))
