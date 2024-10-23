@@ -1,4 +1,5 @@
-﻿using UserService.Application.Common.Exceptions;
+﻿using System.ComponentModel.DataAnnotations;
+using UserService.Application.Common.Exceptions;
 using UserService.Application.TodoItems.Commands.CreateTodoItem;
 using UserService.Application.TodoLists.Commands.CreateTodoList;
 using UserService.Domain.Entities;

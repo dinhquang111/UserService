@@ -54,5 +54,17 @@ To run the tests:
 dotnet test
 ```
 
-## Help
-To learn more about the template go to the [project website](https://github.com/jasontaylordev/CleanArchitecture). Here you can find additional guidance, request new features, report a bug, and discuss the template with other users.
+## Commit rule
+✨ for new feature  
+🐛 for bug  
+📦 for package  
+📝 for document  
+🚀 for launch  
+🔧 for tool, setting  
+🔖 for release  
+🧹 for cleanup  
+🚚 for rename  
+🎨 for styles  
+♻️ for refactor  
+👷 for CI CD  
+🔥 for remove  
