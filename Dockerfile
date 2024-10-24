@@ -24,4 +24,5 @@ RUN dotnet publish "UserService.sln" -c $BUILD_CONFIGURATION
 
 FROM base AS final
 COPY --from=build /app/publish .
-ENTRYPOINT ["dotnet", "Api.dll"]
+RUN echo "Data in application folder" & ls /app
+ENTRYPOINT ["dotnet", "UserService.Api.dll"]
