@@ -27,10 +27,11 @@ public class
     public async Task<PaginatedList<TodoItemBriefDto>> Handle(GetTodoItemsWithPaginationQuery request,
         CancellationToken cancellationToken)
     {
-        return await _context.TodoItems
-            .Where(x => x.ListId == request.ListId)
-            .OrderBy(x => x.Title)
-            .ProjectTo<TodoItemBriefDto>(_mapper.ConfigurationProvider)
-            .PaginatedListAsync(request.PageNumber, request.PageSize);
+        return await Task.FromResult(new PaginatedList<TodoItemBriefDto>(new List<TodoItemBriefDto>(), 0, 1, 10));
+        // return await _context.TodoItems
+        //     .Where(x => x.ListId == request.ListId)
+        //     .OrderBy(x => x.Title)
+        //     .ProjectTo<TodoItemBriefDto>(_mapper.ConfigurationProvider)
+        //     .PaginatedListAsync(request.PageNumber, request.PageSize);
     }
 }
