@@ -6,12 +6,8 @@ var builder = WebApplication.CreateBuilder(args);
 
 var options = new WebApplicationOptions();
 var builder1 = WebApplication.CreateEmptyBuilder(options);
-// builder.Configuration
-//     .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
-//     .AddEnvironmentVariables()
-//     .AddCommandLine(args);
-//
 builder.Configuration.AddConsul();
+
 // Add services to the container.
 builder.Services.AddApplicationServices();
 builder.Services.AddInfrastructureServices(builder.Configuration);
@@ -37,10 +33,6 @@ else
 app.UseHealthChecks("/health");
 app.UseHttpsRedirection();
 app.UseStaticFiles();
-
-app.MapControllerRoute(
-    "default",
-    "{controller}/{action=Index}/{id?}");
 
 app.UseExceptionHandler(options => { });
 

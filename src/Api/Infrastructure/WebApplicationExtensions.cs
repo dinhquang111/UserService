@@ -15,7 +15,7 @@ public static class WebApplicationExtensions
             .WithOpenApi();
     }
 
-    public static WebApplication MapEndpoints(this WebApplication app)
+    public static void MapEndpoints(this WebApplication app)
     {
         Type endpointGroupType = typeof(IEndpointGroupBase);
 
@@ -31,7 +31,5 @@ public static class WebApplicationExtensions
                 instance.Map(app);
             }
         }
-
-        return app;
     }
 }
