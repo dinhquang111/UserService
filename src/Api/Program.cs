@@ -1,11 +1,11 @@
-using UserService.Infrastructure;
-using UserService.Infrastructure.Data;
-using UserService.Api.Services.ConsulConfiguration;
 using UserService.Application;
-using UserService.Domain.Entities;
+using UserService.Infrastructure;
+using UserService.Api.Services.ConsulConfiguration;
 
-WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
+var builder = WebApplication.CreateBuilder(args);
 
+var options = new WebApplicationOptions();
+var builder1 = WebApplication.CreateEmptyBuilder(options);
 // builder.Configuration
 //     .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
 //     .AddEnvironmentVariables()
@@ -49,7 +49,3 @@ app.Map("/", () => Results.Redirect("/api"));
 app.MapEndpoints();
 
 app.Run();
-
-public abstract partial class Program
-{
-}
