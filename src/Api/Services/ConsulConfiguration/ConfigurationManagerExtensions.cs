@@ -18,7 +18,6 @@ public static class ConfigurationManagerExtensions
         
         var consulClient = new ConsulClient(config => config.Address = new Uri(consulAddress.Value));
         var response = consulClient.KV.Get(consulKey).Result;
-        Console.WriteLine(consulKey);
         Guard.Against.Null(response.Response);
         manager.AddJsonStream(new MemoryStream(response.Response.Value));
         return manager;

@@ -4,15 +4,12 @@ using UserService.Api.Services.ConsulConfiguration;
 
 var builder = WebApplication.CreateBuilder(args);
 
-var options = new WebApplicationOptions();
-var builder1 = WebApplication.CreateEmptyBuilder(options);
 builder.Configuration.AddConsul();
 
 // Add services to the container.
 builder.Services.AddApplicationServices();
 builder.Services.AddInfrastructureServices(builder.Configuration);
 builder.Services.AddWebServices();
-
 
 // Configure the HTTP request pipeline.
 WebApplication app = builder.Build();
@@ -27,11 +24,11 @@ if (app.Environment.IsDevelopment())
 else
 {
     // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
-    app.UseHsts();
+    // app.UseHsts();
 }
 
 app.UseHealthChecks("/health");
-app.UseHttpsRedirection();
+// app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseExceptionHandler(options => { });

@@ -5,6 +5,5 @@
     <Nullable>enable</Nullable>
     <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
     <ImplicitUsings>enable</ImplicitUsings>
-    <OutDir>/app/publish</OutDir>
   </PropertyGroup>
 </Project>

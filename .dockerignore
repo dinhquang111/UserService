@@ -22,5 +22,7 @@
 **/secrets.dev.yaml
 **/values.dev.yaml
 **/editorconfig
+**/*/*/appsettings.Development.json
+**/*/*/wwwroot
 LICENSE
 README.md

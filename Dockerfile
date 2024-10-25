@@ -8,15 +8,14 @@ ARG BUILD_CONFIGURATION=Release
 WORKDIR /appsrc
 COPY Directory.Build.props .
 COPY Directory.Packages.props .
-COPY *.sln ./
 COPY src/*/*.csproj ./src/
 WORKDIR /appsrc/src
 RUN for file in $(ls *.csproj); do mkdir -p ${file%.*}/ && mv $file ${file%.*}/; done
+RUN dotnet restore Api/Api.csproj
 WORKDIR /appsrc
-RUN dotnet restore
 COPY src/. src/
-RUN dotnet build "UserService.sln" -c $BUILD_CONFIGURATION 
-RUN dotnet publish "UserService.sln" -c $BUILD_CONFIGURATION
+RUN dotnet build "src/Api/Api.csproj" -c $BUILD_CONFIGURATION --no-restore
+RUN dotnet publish "src/Api/Api.csproj" -c $BUILD_CONFIGURATION -o /app/publish
 
 FROM base AS final
 COPY --from=build /app/publish .
