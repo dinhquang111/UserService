@@ -5,14 +5,13 @@ EXPOSE 8081
 
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 ARG BUILD_CONFIGURATION=Release
-WORKDIR /appsrc
-COPY Directory.Build.props .
-COPY Directory.Packages.props .
+WORKDIR /app
+COPY Directory.*.props .
 COPY src/*/*.csproj ./src/
-WORKDIR /appsrc/src
+WORKDIR /app/src
 RUN for file in $(ls *.csproj); do mkdir -p ${file%.*}/ && mv $file ${file%.*}/; done
 RUN dotnet restore Api/Api.csproj
-WORKDIR /appsrc
+WORKDIR /app
 COPY src/. src/
 RUN dotnet build "src/Api/Api.csproj" -c $BUILD_CONFIGURATION --no-restore
 RUN dotnet publish "src/Api/Api.csproj" -c $BUILD_CONFIGURATION -o /app/publish
