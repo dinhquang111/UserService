@@ -4,7 +4,7 @@ using UserService.Api.Services.ConsulConfiguration;
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Configuration.AddConsul();
+// builder.Configuration.AddConsul();
 
 // Add services to the container.
 builder.Services.AddApplicationServices();

@@ -12,12 +12,6 @@ public class GetGroupUsersQueryValidator : AbstractValidator<GetGroupUsersQuery>
 
 public class GetGroupUsersQueryHandler : IRequestHandler<GetGroupUsersQuery, string>
 {
-    private readonly IApplicationDbContext _context;
-
-    public GetGroupUsersQueryHandler(IApplicationDbContext context)
-    {
-        _context = context;
-    }
 
     public Task<string> Handle(GetGroupUsersQuery request, CancellationToken cancellationToken)
     {

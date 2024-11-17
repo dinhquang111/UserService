@@ -1,7 +1,4 @@
-﻿using UserService.Application.Common.Interfaces;
-using UserService.Application.Common.Models;
-using UserService.Application.Common.Security;
-using UserService.Domain.Enums;
+﻿using UserService.Application.Common.Security;
 
 namespace UserService.Application.TodoLists.Queries.GetTodos;
 
@@ -10,28 +7,15 @@ public record GetTodosQuery : IRequest<TodosVm>;
 
 public class GetTodosQueryHandler : IRequestHandler<GetTodosQuery, TodosVm>
 {
-    private readonly IApplicationDbContext _context;
     private readonly IMapper _mapper;
 
-    public GetTodosQueryHandler(IApplicationDbContext context, IMapper mapper)
+    public GetTodosQueryHandler(IMapper mapper)
     {
-        _context = context;
         _mapper = mapper;
     }
 
-    public async Task<TodosVm> Handle(GetTodosQuery request, CancellationToken cancellationToken)
+    public Task<TodosVm> Handle(GetTodosQuery request, CancellationToken cancellationToken)
     {
-        return new TodosVm
-        {
-            PriorityLevels = Enum.GetValues(typeof(PriorityLevel))
-                .Cast<PriorityLevel>()
-                .Select(p => new LookupDto { Id = (int)p, Title = p.ToString() })
-                .ToList(),
-            Lists = await _context.TodoLists
-                .AsNoTracking()
-                .ProjectTo<TodoListDto>(_mapper.ConfigurationProvider)
-                .OrderBy(t => t.Title)
-                .ToListAsync(cancellationToken)
-        };
+        throw new NotImplementedException();
     }
 }

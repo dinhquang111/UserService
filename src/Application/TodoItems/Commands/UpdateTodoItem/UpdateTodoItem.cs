@@ -14,23 +14,13 @@ public record UpdateTodoItemCommand : IRequest
 
 public class UpdateTodoItemCommandHandler : IRequestHandler<UpdateTodoItemCommand>
 {
-    private readonly IApplicationDbContext _context;
 
-    public UpdateTodoItemCommandHandler(IApplicationDbContext context)
+    public UpdateTodoItemCommandHandler()
     {
-        _context = context;
     }
 
-    public async Task Handle(UpdateTodoItemCommand request, CancellationToken cancellationToken)
+    public Task Handle(UpdateTodoItemCommand request, CancellationToken cancellationToken)
     {
-        TodoItem? entity = await _context.TodoItems
-            .FindAsync(new object[] { request.Id }, cancellationToken);
-
-        Guard.Against.NotFound(request.Id, entity);
-
-        entity.Title = request.Title;
-        entity.Done = request.Done;
-
-        await _context.SaveChangesAsync(cancellationToken);
+        throw new NotImplementedException();
     }
 }

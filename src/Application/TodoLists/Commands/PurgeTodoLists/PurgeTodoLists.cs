@@ -10,17 +10,13 @@ public record PurgeTodoListsCommand : IRequest;
 
 public class PurgeTodoListsCommandHandler : IRequestHandler<PurgeTodoListsCommand>
 {
-    private readonly IApplicationDbContext _context;
 
-    public PurgeTodoListsCommandHandler(IApplicationDbContext context)
+    public PurgeTodoListsCommandHandler()
     {
-        _context = context;
     }
 
-    public async Task Handle(PurgeTodoListsCommand request, CancellationToken cancellationToken)
+    public Task Handle(PurgeTodoListsCommand request, CancellationToken cancellationToken)
     {
-        _context.TodoLists.RemoveRange(_context.TodoLists);
-
-        await _context.SaveChangesAsync(cancellationToken);
+        throw new NotImplementedException();
     }
 }

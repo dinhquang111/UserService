@@ -10,23 +10,13 @@ public record CreateTodoListCommand : IRequest<int>
 
 public class CreateTodoListCommandHandler : IRequestHandler<CreateTodoListCommand, int>
 {
-    private readonly IApplicationDbContext _context;
 
-    public CreateTodoListCommandHandler(IApplicationDbContext context)
+    public CreateTodoListCommandHandler()
     {
-        _context = context;
     }
 
-    public async Task<int> Handle(CreateTodoListCommand request, CancellationToken cancellationToken)
+    public Task<int> Handle(CreateTodoListCommand request, CancellationToken cancellationToken)
     {
-        TodoList entity = new TodoList();
-
-        entity.Title = request.Title;
-
-        _context.TodoLists.Add(entity);
-
-        await _context.SaveChangesAsync(cancellationToken);
-
-        return entity.Id;
+        throw new NotImplementedException();
     }
 }
